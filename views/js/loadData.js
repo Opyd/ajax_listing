@@ -1,8 +1,4 @@
-var xhttp = new XMLHttpRequest();
-xhttp.open("GET", "/loadAll", true);
-xhttp.send();
-
-function loadXML(b = 0) {
+function loadFilter() {
   if (this.readyState === 4 && this.status === 200) {
     let html = "";
     let producers = [];
@@ -44,33 +40,27 @@ function loadXML(b = 0) {
                                 .childNodes[0].nodeValue
                             }</p>
                                 `;
-      producers.push(
-        cars[i].getElementsByTagName("producent")[0].childNodes[0].nodeValue
-      );
-      categories.push(
-        cars[i].getElementsByTagName("kategoria")[0].childNodes[0].nodeValue
-      );
     }
-    producers = [...new Set(producers)];
-    categories = [...new Set(categories)];
-    categories.forEach((val) => {
-      selectCategories.innerHTML += `<option value='${val}'>${val}</option>`;
-    });
-    producers.forEach((val) => {
-      selectProducers.innerHTML += `<option value='${val}'>${val}</option>`;
-    });
+
     container.innerHTML = html;
   }
 }
 
-xhttp.onreadystatechange = loadXML;
-
 window.addEventListener("load", () => {
-  let sort = document.getElementById("priceSort");
-  let container = document.getElementById("container");
-  sort.addEventListener("click", () => {
-    for (let i = 0; i < container.childNodes.length; i++) {
-      container.insertBefore(container.childNodes[i], container.firstChild);
-    }
+  let filtr = document.getElementById("producerFiltr");
+  let categoryFiltr = document.getElementById("categoryFiltr");
+  filtr.addEventListener("click", () => {
+    let producer = document.getElementById("producer").value;
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", `/loadProducer/${producer}`, true);
+    xhttp.send();
+    xhttp.onreadystatechange = loadFilter;
+  });
+  categoryFiltr.addEventListener("click", () => {
+    let category = document.getElementById("category").value;
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", `/loadCategory/${category}`, true);
+    xhttp.send();
+    xhttp.onreadystatechange = loadFilter;
   });
 });
