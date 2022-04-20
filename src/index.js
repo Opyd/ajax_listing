@@ -19,15 +19,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/test", (req, res) => {
-  res.send({ xd: "dupsko" });
-});
-
 app.get("/loadAll", async (req, res) => {
   res.set("content-type", "text/xml");
   res.send(await loadCSVXML());
 });
 
-app.listen(8080, async () => {
+app.listen(8080, () => {
   console.log("serwer działa");
 });
