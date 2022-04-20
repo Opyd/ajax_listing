@@ -1,0 +1,39 @@
+{
+  "name": "ajax_listing",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "��#\u0000 \u0000A\u0000J\u0000A\u0000X\u0000 \u0000p\u0000r\u0000o\u0000d\u0000u\u0000c\u0000t\u0000 \u0000l\u0000i\u0000s\u0000t\u0000 \u0000w\u0000e\u0000b\u0000s\u0000i\u0000t\u0000e\u0000\r\u0000 \u0000",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist",
+    "start": "node src/index.js",
+    "dev": "nodemon --exec npm run start",
+    "restart": "rimraf dist && npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opyd/ajax_listing.git"
+  },
+  "author": "Daniel Opyd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opyd/ajax_listing/issues"
+  },
+  "homepage": "https://github.com/Opyd/ajax_listing#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "fast-csv": "^4.3.6",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15",
+    "prettier": "2.6.2",
+    "rimraf": "^3.0.2"
+  }
+}
