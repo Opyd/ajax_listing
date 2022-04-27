@@ -23,6 +23,7 @@ function loadXML(b = 0) {
                              alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                              class="w-full h-full object-center object-cover group-hover:opacity-75">
                             </div>
+                            <h1 class="mt-4 text-sm text-red-700 font-extrabold">${val.kategoria}</h1>
                             <h3 class="mt-4 text-sm text-gray-700">${val.producent}</h3>
                             <h2 class="mt-4 text-sm text-gray-700">${val.nazwa}</h2>
                             <p class="mt-1 text-lg font-medium text-gray-900">$ ${val.cena}</p>

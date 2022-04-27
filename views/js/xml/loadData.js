@@ -11,35 +11,25 @@ function loadFilter() {
     console.log(xmlData);
 
     let cars = xmlData.getElementsByTagName("car");
+    html +=`<button onclick='back()' class="bg-green-300 rounded-lg col-span-full">Reset</button>`;
     for (let i = 0; i < cars.length; i++) {
       html += `
-                            <a href="${i}" class="group">
+                            <a id="${i}" class="group"  onclick="test(${i})">
                             <div
                             class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                            <img src="${
-                              cars[i].getElementsByTagName("zdjecie")[0]
-                                .childNodes[0].nodeValue
-                            }"
+                            <img src="${cars[i].getElementsByTagName("zdjecie")[0].childNodes[0].nodeValue}"
                              alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                              class="w-full h-full object-center object-cover group-hover:opacity-75">
                             </div>
                             <h1 class="mt-4 text-sm text-red-700 font-extrabold">${
-                              cars[i].getElementsByTagName("kategoria")[0]
-                                .childNodes[0].nodeValue
-                            }</h1>
+                              cars[i].getElementsByTagName("kategoria")[0].childNodes[0].nodeValue}</h1>
                             <h3 class="mt-4 text-sm text-gray-700">${
-                              cars[i].getElementsByTagName("producent")[0]
-                                .childNodes[0].nodeValue
-                            }</h3>
+                              cars[i].getElementsByTagName("producent")[0].childNodes[0].nodeValue}</h3>
                             <h2 class="mt-4 text-sm text-gray-700">${
-                              cars[i].getElementsByTagName("nazwa")[0]
-                                .childNodes[0].nodeValue
-                            }</h2>
+                              cars[i].getElementsByTagName("nazwa")[0].childNodes[0].nodeValue}</h2>
                             <p class="mt-1 text-lg font-medium text-gray-900">$ ${
-                              cars[i].getElementsByTagName("cena")[0]
-                                .childNodes[0].nodeValue
-                            }</p>
-                                `;
+                              cars[i].getElementsByTagName("cena")[0].childNodes[0].nodeValue}</p>
+                           `;
     }
 
     container.innerHTML = html;

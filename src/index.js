@@ -4,10 +4,12 @@ import pkg from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
 const { json, urlencoded } = pkg;
-import loadCSVXML from "./loadCSVXML.js";
-import loadCSVJSON from "./loadCSVJSON.js";
-import loadProducerXML from "./XMLProducer.js";
-import loadCategoryXML from "./XMLCategory.js";
+import loadCSVXML from "./xml/loadCSVXML.js";
+import loadCSVJSON from "./json/loadCSVJSON.js";
+import loadProducerXML from "./xml/XMLProducer.js";
+import loadCategoryXML from "./xml/XMLCategory.js";
+import loadProducerJSON from "./json/JSONProducer.js"
+import loadCategoryJSON from "./json/JSONCategory.js"
 
 const app = express();
 
@@ -44,6 +46,16 @@ app.get("/loadProducer/:producer", async (req, res) => {
 app.get("/loadCategory/:category", async (req, res) => {
   res.set("content-type", "text/xml");
   res.send(await loadCategoryXML(req.params.category));
+});
+
+app.get("/loadProducerJSON/:producer", async (req, res) => {
+  res.set("content-type", "text/json");
+  res.send(await loadProducerJSON(req.params.producer));
+});
+
+app.get("/loadCategoryJSON/:category", async (req, res) => {
+  res.set("content-type", "text/json");
+  res.send(await loadCategoryJSON(req.params.category));
 });
 
 app.get("/loadAllJson", async (req, res) => {
