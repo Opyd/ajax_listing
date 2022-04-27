@@ -2,6 +2,9 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "/loadAllJson", true);
 xhttp.send();
 
+let json = null;
+let cache = "";
+
 function loadXML(b = 0) {
   if (this.readyState === 4 && this.status === 200) {
     let html = "";
@@ -13,10 +16,10 @@ function loadXML(b = 0) {
     const selectCategories = document.getElementById("category");
     let jsonData = JSON.parse(this.responseText);
     console.log(jsonData);
-
+    json = jsonData;
     jsonData.forEach((val, index) => {
       html += `
-                            <a href="${index}" class="group">
+                            <a id="${index}" onclick="test(${index})" class="group">
                             <div
                             class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                             <img src="${val.zdjecie}"
@@ -40,6 +43,7 @@ function loadXML(b = 0) {
       selectProducers.innerHTML += `<option value='${val}'>${val}</option>`;
     });
     container.innerHTML = html;
+    cache = html;
   }
 }
 

@@ -2,7 +2,7 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "/loadAll", true);
 xhttp.send();
 
-let cache = '';
+let cache = "";
 let xmls = null;
 
 function loadXML(b = 0) {
@@ -26,8 +26,8 @@ function loadXML(b = 0) {
                                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                                  class="w-full h-full object-center object-cover group-hover:opacity-75">
                             </div>
-                            <h1 class="mt-4 text-sm text-red-700 font-extrabold">${cars[i].getElementsByTagName("kategoria")[0]}</h1>
-                            <h3 class="mt-4 text-sm text-gray-700">${cars[i].getElementsByTagName("producent")[0].childNodes[0].nodeValue}</h3>
+                            <h1 class="mt-4 text-sm text-red-700 font-extrabold">${cars[i].getElementsByTagName("kategoria")[0].childNodes[0].nodeValue}</h1>
+                            <h3 class="mt-4 text-sm text-gray-700">${ cars[i].getElementsByTagName("producent")[0].childNodes[0].nodeValue }</h3>
                             <h2 class="mt-4 text-sm text-gray-700">${cars[i].getElementsByTagName("nazwa")[0].childNodes[0].nodeValue}</h2>
                             <p class="mt-1 text-lg font-medium text-gray-900">$ ${cars[i].getElementsByTagName("cena")[0].childNodes[0].nodeValue}</p>
                                 `;
@@ -49,7 +49,6 @@ function loadXML(b = 0) {
         container.innerHTML = html;
         cache = html;
     }
-
 }
 
 xhttp.onreadystatechange = loadXML;

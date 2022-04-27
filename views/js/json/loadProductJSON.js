@@ -12,11 +12,11 @@ function test(i) {
     <section class="text-gray-700 body-font overflow-hidden bg-white w-full col-span-full">
       <div class="container px-5 py-24 mx-auto">
         <div class="lg:w-4/5 mx-auto flex flex-wrap">
-          <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="${xmls[i].getElementsByTagName("zdjecie")[0].childNodes[0].nodeValue}">
+          <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="${json[i].zdjecie}">
           <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-          <h3 class="text-sm title-font text-red-600 tracking-widest">${xmls[i].getElementsByTagName("kategoria")[0].childNodes[0].nodeValue}</h3>
-            <h2 class="text-sm title-font text-gray-500 tracking-widest">${xmls[i].getElementsByTagName("producent")[0].childNodes[0].nodeValue}</h2>
-            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">${xmls[i].getElementsByTagName("nazwa")[0].childNodes[0].nodeValue}</h1>
+          <h3 class="text-sm title-font text-red-600 tracking-widest">${json[i].kategoria}</h3>
+            <h2 class="text-sm title-font text-gray-500 tracking-widest">${json[i].producent}</h2>
+            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">${json[i].nazwa}</h1>
             <div class="flex mb-4">
               <span class="flex items-center">
                 <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ function test(i) {
                 </a>
               </span>
             </div>
-            <p class="leading-relaxed">${xmls[i].getElementsByTagName("opis")[0].childNodes[0].nodeValue}</p>
+            <p class="leading-relaxed">${json[i].opis}</p>
             <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
               <div class="flex">
                 <span class="mr-3">Color</span>
@@ -73,7 +73,7 @@ function test(i) {
               </div>
             </div>
             <div class="flex">
-              <span class="title-font font-medium text-2xl text-gray-900">${xmls[i].getElementsByTagName("cena")[0].childNodes[0].nodeValue} $</span>
+              <span class="title-font font-medium text-2xl text-gray-900">${json[i].cena} $</span>
               <button class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Kup</button>
               <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
