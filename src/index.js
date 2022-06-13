@@ -8,8 +8,9 @@ import loadCSVXML from "./xml/loadCSVXML.js";
 import loadCSVJSON from "./json/loadCSVJSON.js";
 import loadProducerXML from "./xml/XMLProducer.js";
 import loadCategoryXML from "./xml/XMLCategory.js";
-import loadProducerJSON from "./json/JSONProducer.js"
-import loadCategoryJSON from "./json/JSONCategory.js"
+import loadProducerJSON from "./json/JSONProducer.js";
+import loadCategoryJSON from "./json/JSONCategory.js";
+import cors from "cors";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "..", "views")));
 app.set("view engine", "ejs");
+app.use(cors());
 
 app.get("/xml", (req, res) => {
   res.render("xml");
