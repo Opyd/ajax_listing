@@ -2,7 +2,7 @@
 # AJAX product list website
 ## Description
 This site presents the possibilities offered by the AJAX technique.
-The project uses XML and JSON. Dummy data is served by simple API written in Express.js
+The project uses XML and JSON. Dummy data is served by simple API written in Express.js, then the data is processed by the script and displayed on the page
 ## Usage
 
 - Install dependencies
